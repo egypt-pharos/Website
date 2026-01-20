@@ -1,0 +1,465 @@
+/* --- CSS VARIABLES --- */
+:root {
+    --color-bg: #0a0a0a;       
+    --color-gold: #c59d5f;     
+    --color-green: #5c8d4d;    
+    --color-text: #e0e0e0;     
+    --color-card: #141414;     
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-tech: 'Courier New', Courier, monospace;
+}
+
+/* --- GLOBAL STYLES --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 2px solid var(--color-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a:hover { color: var(--color-green); }
+.menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--color-gold); }
+
+/* --- HERO SECTION --- */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+    position: relative;
+    padding: 0 20px;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(var(--color-card) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-card) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.hero-content { z-index: 1; max-width: 800px; }
+
+.logo-img {
+    max-width: 250px; 
+    width: 100%;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 15px rgba(197, 157, 95, 0.3));
+}
+
+h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    letter-spacing: 4px;
+    font-family: serif;
+}
+
+.tagline {
+    font-family: var(--font-tech);
+    color: var(--color-green);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* --- BUTTONS --- */
+.btn-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid var(--color-gold);
+    color: var(--color-gold);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--color-gold);
+    color: black;
+    box-shadow: 0 0 15px var(--color-gold);
+}
+
+.btn-green {
+    border-color: var(--color-green);
+    color: var(--color-green);
+}
+
+.btn-green:hover {
+    background: var(--color-green);
+    color: white;
+    box-shadow: 0 0 15px var(--color-green);
+}
+
+.full-width {
+    width: 100%;
+    border: none;
+    background: var(--color-green);
+    color: white;
+}
+
+/* --- SOCIAL MEDIA BAR --- */
+.social-bar {
+    display: flex;
+    justify-content: center;
+    gap: 25px; 
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 1.8rem;
+    color: #666; 
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px); 
+    color: var(--color-gold);    
+    text-shadow: 0 0 10px rgba(197, 157, 95, 0.5);
+}
+
+/* --- SECTIONS COMMON --- */
+section { padding: 80px 10%; }
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.highlight-text { color: var(--color-green); font-weight: bold; }
+
+/* --- ABOUT GRID --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* --- ABOUT IMAGE STYLES --- */
+.about-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img {
+    width: 100%;             /* Ensures it shrinks on mobile */
+    max-width: 670px;        /* Limits max size on desktop */
+    height: auto;            /* Keeps the shape correct */
+    border-radius: 10px;
+    border: 2px solid var(--color-gold);
+    box-shadow: 0 0 20px rgba(197, 157, 95, 0.2); /* Soft Gold Glow */
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.02); /* Zoom effect */
+}
+
+/* --- SLIDER STYLES (UPDATED FOR MANUAL) --- */
+.simple-slider {
+    display: grid; 
+    width: 100%;
+    max-width: 670px;
+    position: relative; /* Needed for buttons to sit inside */
+}
+
+.slide {
+    grid-area: 1 / 1; 
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--color-gold);
+    box-shadow: 0 0 20px rgba(197, 157, 95, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Faster transition for clicks */
+    z-index: 1; /* Sits behind buttons */
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* New Button Styles */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10; /* Sits on top of images */
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background-color: var(--color-gold);
+    color: black;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* --- CARDS (COMPETITIONS) --- */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--color-card);
+    border: 1px solid #333;
+    padding: 2rem;
+    border-radius: 5px;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+.card:hover { transform: translateY(-5px); border-color: var(--color-gold); }
+.card h3 { color: var(--color-gold); margin-bottom: 1rem; font-family: var(--font-tech); }
+
+/* --- TEAM SECTION --- */
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    background: var(--color-card);
+    border: 1px solid #333;
+    width: 300px;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.team-card:hover { border-color: var(--color-green); transform: translateY(-5px); }
+
+.profile-img {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-gold);
+    margin-bottom: 1.5rem;
+    background-color: #333;
+}
+
+.member-name {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.member-role {
+    color: var(--color-green);
+    font-family: var(--font-tech);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Style specifically for founders (Gold Role) */
+.member-role[style*="color: var(--color-gold)"] {
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* --- CONTACT SECTION --- */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
+    font-family: var(--font-main);
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--color-gold);
+    background: #222;
+}
+
+.contact-info-box h3 {
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    font-family: var(--font-tech);
+}
+
+.contact-info-box p { margin-bottom: 1.5rem; color: #aaa; }
+.contact-info-box i { color: var(--color-green); margin-right: 10px; }
+
+
+/* --- HISTORY / GALLERY SECTION --- */
+.gallery-container {
+    display: grid;
+    /* This puts 4 images in one row, making them smaller */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 1200px; /* Limits the total width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid var(--color-gold);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px; /* Reduced height to be smaller */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--color-gold);
+    padding: 8px;
+    text-align: center;
+    font-family: var(--font-tech);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: black;
+    border-top: 1px solid #333;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    color: #666;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    .nav-links { 
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.95);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--color-gold);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle { display: block; }
+    h1 { font-size: 2.5rem; }
+    
+    /* Stack columns for About and Contact */
+    .about-grid, .contact-content { grid-template-columns: 1fr; }
+    
+    .btn-container { flex-direction: column; width: 100%; }
+
+    /* Fix Image Responsiveness on Mobile */
+    .about-image-container {
+        margin-top: 2rem; /* Adds space so image doesn't touch text */
+    }
+    
+    .about-img {
+        width: 100%; /* Forces image to fit screen width */
+        height: auto;
+    }
+
+    /* Fix Gallery on Mobile */
+    .gallery-container {
+        /* On mobile, make them 2 per row so they aren't too tiny */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .gallery-img {
+        height: 150px; /* Even smaller on mobile */
+    }
+}
