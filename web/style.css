@@ -205,7 +205,7 @@ section { padding: 80px 10%; }
     transform: scale(1.02); /* Zoom effect */
 }
 
-/* --- SLIDER STYLES (UPDATED FOR MANUAL) --- */
+/* --- SLIDER STYLES (MANUAL) --- */
 .simple-slider {
     display: grid; 
     width: 100%;
@@ -365,11 +365,10 @@ section { padding: 80px 10%; }
 /* --- HISTORY / GALLERY SECTION --- */
 .gallery-container {
     display: grid;
-    /* This puts 4 images in one row, making them smaller */
     grid-template-columns: repeat(4, 1fr); 
     gap: 1.5rem;
     margin-top: 2rem;
-    max-width: 1200px; /* Limits the total width */
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -383,7 +382,7 @@ section { padding: 80px 10%; }
 
 .gallery-img {
     width: 100%;
-    height: 200px; /* Reduced height to be smaller */
+    height: 200px;
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
@@ -417,49 +416,62 @@ footer {
     color: #666;
 }
 
-/* --- RESPONSIVE MEDIA QUERIES --- */
+/* --- RESPONSIVE MEDIA QUERIES (UPDATED) --- */
 @media (max-width: 768px) {
+    /* NAVIGATION: The List "Does its job" now */
     .nav-links { 
         display: none; 
         flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 0;
+        justify-content: center; /* Center items vertically */
+        align-items: center;     /* Center items horizontally */
+        position: fixed;         /* Fixed position prevents scrolling issues */
+        top: 0;
+        left: 0;
         width: 100%;
-        background: rgba(10, 10, 10, 0.95);
+        height: 100vh;           /* Full screen height */
+        background: rgba(10, 10, 10, 0.98); /* Solid dark background */
         padding: 2rem;
         text-align: center;
-        border-bottom: 1px solid var(--color-gold);
+        z-index: 999;           /* Sit on top of everything */
     }
     
     .nav-links.active {
         display: flex;
     }
 
-    .menu-toggle { display: block; }
+    /* Style the list items to be big clickable targets */
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem; /* Bigger font for mobile */
+        font-weight: bold;
+        color: var(--color-text);
+        padding: 10px;
+        display: block;
+    }
+
+    .nav-links a:hover {
+        color: var(--color-gold);
+    }
+
+    /* Make sure menu button is visible */
+    .menu-toggle { 
+        display: block; 
+        z-index: 1001; /* Above the overlay */
+    }
+    
+    /* Layout Adjustments */
     h1 { font-size: 2.5rem; }
-    
-    /* Stack columns for About and Contact */
     .about-grid, .contact-content { grid-template-columns: 1fr; }
-    
     .btn-container { flex-direction: column; width: 100%; }
 
     /* Fix Image Responsiveness on Mobile */
-    .about-image-container {
-        margin-top: 2rem; /* Adds space so image doesn't touch text */
-    }
-    
-    .about-img {
-        width: 100%; /* Forces image to fit screen width */
-        height: auto;
-    }
+    .about-image-container { margin-top: 2rem; }
+    .about-img { width: 100%; height: auto; }
 
     /* Fix Gallery on Mobile */
-    .gallery-container {
-        /* On mobile, make them 2 per row so they aren't too tiny */
-        grid-template-columns: repeat(2, 1fr); 
-    }
-    .gallery-img {
-        height: 150px; /* Even smaller on mobile */
-    }
+    .gallery-container { grid-template-columns: repeat(2, 1fr); }
+    .gallery-img { height: 150px; }
 }
