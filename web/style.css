@@ -50,24 +50,6 @@ ul { list-style: none; }
 .story-socials a { font-size: 1.5rem; color: #888; transition: 0.3s; }
 .story-socials a:hover { color: var(--color-gold); transform: translateY(-3px); }
 
-/* --- FIXED MOBILE MODAL --- */
-@media (max-width: 768px) {
-    .story-modal { align-items: center; padding: 0 10px; }
-    .story-content { 
-        width: 95%; 
-        padding: 1.5rem; 
-        margin: 0; 
-        max-height: 80vh; 
-        overflow-y: auto; 
-    }
-    .story-header { flex-direction: column; text-align: center; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 1rem; }
-    .story-header img { width: 90px; height: 90px; margin-bottom: 0; } 
-    .story-header h2 { font-size: 1.4rem; }
-    .story-body { font-size: 0.95rem; line-height: 1.5; }
-    .story-skills { margin-top: 15px; padding-top: 15px; gap: 8px; }
-    .skill-tag { padding: 4px 10px; font-size: 0.75rem; }
-}
-
 /* --- LIGHTBOX --- */
 .lightbox {
     display: none; position: fixed; z-index: 99999; 
@@ -273,8 +255,31 @@ footer { background: #020202; border-top: 1px solid #222; text-align: center; pa
     .lightbox-content { width: 95%; }
 
     /* Partners Fix (Small) */
-    .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .partner-logo { max-width: 70px; padding: 5px; }
+    .partners-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 1rem; 
+        padding: 1rem 0;
+    }
+    .partner-logo { 
+        max-width: 80px; 
+        padding: 10px; 
+    }
+
+    /* Fix for Story Modal Mobile */
+    .story-modal { align-items: center; padding: 0 10px; }
+    .story-content { 
+        width: 95%; 
+        padding: 1.5rem; 
+        margin: 0; 
+        max-height: 80vh; 
+        overflow-y: auto; 
+    }
+    .story-header { flex-direction: column; text-align: center; gap: 0.5rem; margin-bottom: 1rem; padding-bottom: 1rem; }
+    .story-header img { width: 90px; height: 90px; margin-bottom: 0; } 
+    .story-header h2 { font-size: 1.4rem; }
+    .story-body { font-size: 0.95rem; line-height: 1.5; }
+    .story-skills { margin-top: 15px; padding-top: 15px; gap: 8px; }
+    .skill-tag { padding: 4px 10px; font-size: 0.75rem; }
 }
 
 /* --- NEW: MODAL SKILLS TAGS --- */
